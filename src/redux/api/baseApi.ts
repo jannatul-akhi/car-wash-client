@@ -19,8 +19,8 @@ import {
 // } from "../features/auth/userCredentialSlice";
 
 const baseQuery = fetchBaseQuery({
-  //baseUrl: `https://car-colledtion-reservation-backend.vercel.app/api`,
-  baseUrl: `http://localhost:5000/api`,
+  baseUrl: `https://car-wash-backend-omega.vercel.app/api`,
+  //baseUrl: `http://localhost:5000/api`,
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).userCredentialInfo.token;
@@ -41,8 +41,8 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions);
   if (result?.error?.status === 401) {
     const res = await fetch(
-      //`https://car-colledtion-reservation-backend.vercel.app/api/v1/auth/refresh-token`,
-      `http://localhost:5000/api/auth/refresh-token`,
+      `https://car-wash-backend-omega.vercel.app/api/v1/auth/refresh-token`,
+      //`http://localhost:5000/api/auth/refresh-token`,
       {
         method: "POST",
         credentials: "include",
